@@ -1,0 +1,36 @@
+plugins {
+    id 'java'
+}
+
+group = 'com.example'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // BOM — управляет версиями всех модулей
+    testImplementation(platform("org.testcontainers:testcontainers-bom:1.19.7"))
+
+    // Testcontainers core
+    testImplementation "org.testcontainers:testcontainers:"
+    testImplementation "org.testcontainers:junit-jupiter"
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+
+    // Специализированные модули
+    testImplementation "org.testcontainers:postgresql"
+    
+    // JUnit 5
+    testImplementation platform('org.junit:junit-bom:5.10.2')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+    
+    // Драйвер и доп. библиотеки для примера
+    implementation 'org.postgresql:postgresql:42.7.3'
+    testImplementation 'org.slf4j:slf4j-simple:2.0.12'
+}
+
+test {
+    useJUnitPlatform()
+}
