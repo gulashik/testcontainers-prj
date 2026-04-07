@@ -14,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
- * Пример 1: Использование аннотации @Testcontainers и @Container.
+ * Использование аннотации @Testcontainers и @Container.
  * В этом режиме Testcontainers автоматически управляет жизненным циклом (start/stop)
  * для каждого тестового класса или метода (в зависимости от static/non-static).
  */

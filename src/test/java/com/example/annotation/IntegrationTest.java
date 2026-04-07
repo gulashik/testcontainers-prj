@@ -9,10 +9,9 @@ import java.lang.annotation.Target;
 
 /**
  * Мета-аннотация для интеграционных тестов.
- * Подключает PostgresExtension, который управляет жизненным циклом контейнера.
  */
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
-@ExtendWith(PostgresExtension.class)
+@ExtendWith(PostgresExtension.class) // Подключает PostgresExtension, который управляет жизненным циклом контейнера
 public @interface IntegrationTest {
 }
