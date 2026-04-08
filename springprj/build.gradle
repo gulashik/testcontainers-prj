@@ -1,0 +1,42 @@
+plugins {
+    id 'org.springframework.boot' version '3.4.1'
+    id 'io.spring.dependency-management' version '1.1.7'
+    id 'java'
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
+}
+
+group = 'com.example'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+
+    // Драйвер JDBC для PostgreSQL
+    runtimeOnly 'org.postgresql:postgresql'
+    
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+    // Поддержка Testcontainers в Spring Boot
+    testImplementation 'org.springframework.boot:spring-boot-testcontainers'
+    // Интеграция Testcontainers с JUnit 5 (Jupiter)
+    testImplementation 'org.testcontainers:junit-jupiter'
+    // Модуль Testcontainers для работы с PostgreSQL
+    testImplementation 'org.testcontainers:postgresql'
+
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+test {
+    // Использовать платформу JUnit для выполнения тестов
+    useJUnitPlatform()
+}

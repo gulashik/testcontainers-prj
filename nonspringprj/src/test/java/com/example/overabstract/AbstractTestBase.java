@@ -14,7 +14,9 @@ public abstract class AbstractTestBase {
         postgres = new PostgreSQLContainer<>("postgres:16.2-alpine3.19")
                 .withDatabaseName("maindb")
                 .withUsername("admin")
-                .withPassword("admin");
+                .withPassword("admin")
+                //.withInitScript("sql/init.sql")
+                ;
         postgres.start();
     }
 }

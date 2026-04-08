@@ -16,7 +16,9 @@ public class PostgresExtension implements BeforeAllCallback, AfterAllCallback {
     private static final PostgreSQLContainer<?> postgres = new PostgreSQLContainer<>("postgres:16.2-alpine3.19")
             .withDatabaseName("testdb")
             .withUsername("postgres")
-            .withPassword("postgres");
+            .withPassword("postgres")
+            //.withInitScript("sql/init.sql")
+        ;
 
     @Override
     public void beforeAll(ExtensionContext context) {
@@ -34,7 +36,7 @@ public class PostgresExtension implements BeforeAllCallback, AfterAllCallback {
     public void afterAll(ExtensionContext context) {
         // Контейнер будет остановлен после завершения всех тестов, использующих это расширение.
         // Хотя Testcontainers использует Ryuk для очистки, явная остановка — хороший тон.
-        if (postgres.isRunning()) {
+        if (postgres != null && postgres.isRunning()) {
             postgres.stop(); // Если нужно останавливать контейнер после каждого тестового класса
         }
     }
