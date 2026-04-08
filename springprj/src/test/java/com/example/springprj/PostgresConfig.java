@@ -52,6 +52,31 @@ public class PostgresConfig {
        По умолчанию ожидание длится 60 секунд. Если контейнер не успел — тест упадет.
        Можно изменить: .withStartupTimeout(Duration.ofSeconds(90)).
 
+    Volumes и Files (Работа с файлами).
+    Нужны для прокидывания конфигов, инициализационных скриптов или сохранения данных.
+
+    1. Файлы (Mounting Files/Classpath):
+       Используйте .withClasspathResourceMapping(resourcePath, containerPath, mode)
+       или .withCopyFileToContainer(MountableFile, containerPath).
+       - Зачем: Прокинуть конфиг (например, redis.conf) или init-скрипт.
+       - Нужно ли явно: Только если вам не хватает стандартных методов (например, .withInitScript()).
+
+    2. Volumes (Тома):
+       В тестах используются редко, так как контейнеры обычно эфемерны (уничтожаются после тестов).
+       - Зачем: Если нужно сохранить состояние между перезапусками контейнера ВНУТРИ одного теста.
+
+    Networks (Сети).
+    Нужны для взаимодействия нескольких контейнеров между собой (например, App -> DB).
+
+    - Как использовать:
+      Network network = Network.newNetwork();
+      container1.withNetwork(network).withNetworkAliases("db");
+      container2.withNetwork(network);
+    - Нужно ли явно:
+      • Если контейнер один — НЕ НУЖНО.
+      • Если используете @ServiceConnection — НЕ НУЖНО (Spring общается с контейнером через проброшенные порты localhost).
+      • Если один контейнер должен стучаться в другой по имени хоста (DNS) — ДА, нужна общая сеть.
+
     Как это работает с @ServiceConnection.
     Когда помечается @Bean бин PostgreSQLContainer аннотацией @ServiceConnection:
     1. Spring Boot обнаруживает, что в контексте теста есть контейнер с базой данных.
