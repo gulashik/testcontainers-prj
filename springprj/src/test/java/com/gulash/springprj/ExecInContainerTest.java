@@ -1,9 +1,7 @@
-package com.example.springprj;
+package com.gulash.springprj;
 
-import jakarta.transaction.Transactional;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.test.annotation.DirtiesContext;
 import org.testcontainers.containers.PostgreSQLContainer;
 
 import java.io.IOException;

@@ -1,11 +1,9 @@
-package com.example.springprj;
+package com.gulash.springprj;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.testcontainers.containers.PostgreSQLContainer;
-
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Optional;
 

@@ -1,4 +1,4 @@
-package com.example.overabstract;
+package com.gulash.overabstract;
 
 import org.junit.jupiter.api.Test;
 

@@ -1,4 +1,4 @@
-package com.example.manual;
+package com.gulash.manual;
 
 import org.testcontainers.containers.PostgreSQLContainer;
 import org.testcontainers.junit.jupiter.Container;

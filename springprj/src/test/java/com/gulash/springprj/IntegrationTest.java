@@ -1,6 +1,5 @@
-package com.example.springprj;
+package com.gulash.springprj;
 
-import jakarta.transaction.Transactional;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.annotation.Import;
 import org.springframework.test.annotation.DirtiesContext;

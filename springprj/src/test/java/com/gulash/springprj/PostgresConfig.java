@@ -1,10 +1,9 @@
-package com.example.springprj;
+package com.gulash.springprj;
 
 import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.boot.testcontainers.service.connection.ServiceConnection;
 import org.springframework.context.annotation.Bean;
 import org.testcontainers.containers.PostgreSQLContainer;
-import org.testcontainers.containers.wait.strategy.Wait;
 
 // Конфиг один раз — используется во всех тестах
 @TestConfiguration(proxyBeanMethods = false)

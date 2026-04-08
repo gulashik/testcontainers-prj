@@ -1,4 +1,4 @@
-package com.example.springprj;
+package com.gulash.springprj;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

@@ -1,4 +1,4 @@
-package com.example.springprj;
+package com.gulash.springprj;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

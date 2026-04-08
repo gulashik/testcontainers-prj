@@ -1,4 +1,4 @@
-package com.example.annotation;
+package com.gulash.annotation;
 
 import org.junit.jupiter.api.Test;
 import org.testcontainers.containers.PostgreSQLContainer;
