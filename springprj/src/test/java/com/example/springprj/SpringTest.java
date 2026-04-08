@@ -12,8 +12,7 @@ import java.util.Optional;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-@IntegrationTest
-@Transactional // для откатов изменений после каждого теста
+@IntegrationTest // внутри есть @DirtiesContext и @Transactional
 public class SpringTest {
 
     @Autowired

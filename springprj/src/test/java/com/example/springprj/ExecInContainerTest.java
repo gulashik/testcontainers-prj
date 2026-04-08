@@ -11,8 +11,7 @@ import java.io.IOException;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-@IntegrationTest
-@DirtiesContext // чтобы очистить контекст после каждого теста
+@IntegrationTest // внутри есть @DirtiesContext и @Transactional
 public class ExecInContainerTest {
 
     @Autowired
