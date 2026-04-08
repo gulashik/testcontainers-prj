@@ -32,6 +32,18 @@ public class PostgresConfig {
             ;
     }
     /*
+    Выполнение команд внутри контейнера (execInContainer).
+    Иногда нужно выполнить команду внутри работающего контейнера (например, psql, pg_dump, ls и т.д.).
+
+    Пример использования:
+    Container.ExecResult result = postgres.execInContainer(
+        "psql", "-U", postgres.getUsername(), "-d", postgres.getDatabaseName(), "-c", "SELECT count(*) FROM users;"
+    );
+
+    - result.getStdout(): стандартный вывод команды.
+    - result.getStderr(): поток ошибок.
+    - result.getExitCode(): код завершения (0 = успех).
+
     Wait Strategies (Стратегии ожидания).
     Testcontainers по умолчанию считает, что контейнер готов к работе, когда он запущен.
     Однако, само приложение внутри контейнера (например, PostgreSQL) может еще не успеть загрузиться.
