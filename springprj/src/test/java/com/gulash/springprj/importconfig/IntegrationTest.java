@@ -1,4 +1,4 @@
-package com.gulash.springprj;
+package com.gulash.springprj.importconfig;
 
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.annotation.Import;

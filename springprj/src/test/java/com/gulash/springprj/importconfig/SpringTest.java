@@ -1,5 +1,7 @@
-package com.gulash.springprj;
+package com.gulash.springprj.importconfig;
 
+import com.gulash.springprj.User;
+import com.gulash.springprj.UserRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
