@@ -18,15 +18,14 @@ public class SpringWithExtensionTest {
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
-    // или @Autowired(required = false) так как привязка не обязательна
-    private PostgreSQLContainer<?> postgres; // не обязателен в этом варианте, но полезно проверить, что контейнер поднят
-
     @Autowired
     private UserRepository userRepository;
 
     @Test
     void contextLoads() {
-        assertTrue(postgres == null || postgres.isRunning()); // если есть бин контейнера — он должен быть запущен
+        // Только для проверки, что контейнер поднят
+        PostgreSQLContainer<?> postgres = PostgresExtension.getPostgres();
+        assertTrue(postgres.isRunning());
     }
 
     @Test
