@@ -18,7 +18,7 @@ public class SpringWithExtensionTest {
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
-    @Autowired(required = false)
+    // или @Autowired(required = false) так как привязка не обязательна
     private PostgreSQLContainer<?> postgres; // не обязателен в этом варианте, но полезно проверить, что контейнер поднят
 
     @Autowired
